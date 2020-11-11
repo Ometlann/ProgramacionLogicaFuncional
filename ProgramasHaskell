@@ -1,0 +1,71 @@
+main = do
+
+    putStrLn ("Que opcion quieres: ")
+    n <- getLine
+
+
+{-Menu para ingresar letras-}
+    casos n
+
+casos n = do
+    case n of
+        "1" -> suma 1
+        "2" -> resta 2
+        "3" -> multiplicacion 3
+        "4" -> divicion 4
+        "5" -> print ("Salir")
+        _   -> print("Opcion no disponible")
+
+
+
+suma n = do
+    putStrLn ("Ingresa el numero1: ")
+    a <- getLine
+    putStrLn ("Ingresa el numero 2:")
+    b <- getLine
+
+    let aInt = (read a)
+    let bInt = (read b)
+    let resultado = aInt + bInt
+
+    putStrLn("El resultado es: "++show resultado) 
+    main
+
+resta n = do
+    putStrLn ("Ingresa el numero1: ")
+    a <- getLine
+    putStrLn ("Ingresa el numero 2:")
+    b <- getLine
+
+    let aInt = (read a)
+    let bInt = (read b)
+    let resultado = aInt - bInt
+
+    putStrLn("El resultado es: "++show resultado) 
+    main
+
+multiplicacion n= do
+    putStrLn ("Ingresa el numero1: ")
+    a <- getLine
+    putStrLn ("Ingresa el numero 2:")
+    b <- getLine
+
+    let aInt = (read a)
+    let bInt = (read b)
+    let resultado = aInt * bInt
+
+    putStrLn("El resultado es: "++show resultado) 
+    main
+
+divicion n = do
+    putStrLn ("Ingresa el numero1: ")
+    a <- getLine
+    putStrLn ("Ingresa el numero 2:")
+    b <- getLine
+
+    let aInt = (read a)
+    let bInt = (read b)
+    let resultado = div aInt  bInt
+
+    putStrLn("El resultado es: "++show resultado) 
+    main
