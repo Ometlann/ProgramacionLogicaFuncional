@@ -15,7 +15,7 @@ mes = do
  n <- getLine
  --Ingresamos mayor a 0 y menor a 13, despues entra a los casos
  --if (read n) > 0 && (read n) <= 13
- if (read n) > 0 && (read n) < 13
+ if ((read n) > 0 && (read n) < 13)
      then do 
          case n of 
              "1"->do
