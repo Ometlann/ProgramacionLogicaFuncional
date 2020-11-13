@@ -1,5 +1,4 @@
 
-principal = dia
 dia = do
     putStrLn("Ingresa dia")
     n<-getLine
