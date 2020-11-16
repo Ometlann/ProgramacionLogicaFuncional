@@ -21,7 +21,7 @@ factorial = do
 numUnoDiez n = do
   if n<= 10
     then do 
-    print n
+    print(n)
     numUnoDiez (n+1)
   else 
      principal
