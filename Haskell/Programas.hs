@@ -1,102 +1,99 @@
 principal = do
-    putStrLn("1.Fibonacci\n2.Factorial\n3.Palindromo\n4.Calculadora\n5.Salir\n¿Que Opcion Deseas?")
+    putStrLn("1.Factorial \n2.Numero1-10 \n3.Palindromo \n4.Calculadora \n5.Salir \n¿Que Opcion Deseas?")
     n<-getLine
-    casos n
+    casos(read n)
 
 casos n = do
     case n of
-        "1"->fibonacci 1
-        "2"->factorial 2
-        "3"->palindromo 3
-        "4"->calcu 4
-        "5"->print("Salir")
-        _ ->print("Opcion No Disponible")
+        1 -> factorial
+        2 -> numUnoDiez 1
+        3 -> palindromo
+        4 -> calculadora
+        5 -> print("Salir")
+        _ -> print("Opcion No Valida")
 
-fibonacci n = do
-    putStr("Ingresa Posicion")
-    a<-getLine
-    let aInt = (read a)
-    fibonacci 0 = 0
-    fibonacci 1 = 1
-    fibonacci a = fibonacci(a-1)+fibonacci(a-2)
+factorial = do
+    print("Factorial De: ")
+    n<-getLine
+    print(product[1..(read n)])
     principal
 
-factorial n = do
-    putStrLn("Digita Numero: ")
-    a<-getLine
-    let aInt = (read a)
-    factorial 0 = 1
-    factorial a = factorial(a-1)*a
-    principal
+numUnoDiez n = do
+  if n<= 10
+    then do 
+    print n
+    numUnoDiez (n+1)
+  else 
+     principal
 
-palindromo n = do
-    palindromo [] = True
-    palindromo [x]= True
-    palindromo (x:xs) = reverse (x:xs) == (x:xs)
-    principal
+palindromo = do 
+ print("Ingresa Cadena: ")
+ n<-getLine
+ if n == reverse n
+  then do 
+   print("Es Palindromo")
+  else 
+   print("No Es Palindromo")
+ principal
 
-calcu = do
-    main = do
-    putStrLn ("Que opcion quieres: ")
-    n <- getLine
-    casos n
+calculadora = do
+  print("1 Suma")
+  print("2 Resta")
+  print("3 Multiplicacion")
+  print("4 Division")
+  print("5. Menu Principal ")
+  n<-getLine
+  calc(read n)
 
-casos n = do
+calc n = do
     case n of
-        "1" -> suma 1
-        "2" -> resta 2
-        "3" -> multiplicacion 3
-        "4" -> divicion 4
-        "5" -> print ("Salir")
+     1 -> suma
+     2 -> resta
+     3 -> multiplicacion
+     4 -> division
+     5 -> principal
 
-suma n = do
-    putStrLn ("Ingresa el numero1: ")
-    a <- getLine
-    putStrLn ("Ingresa el numero 2:")
-    b <- getLine
+suma = do
+ putStrLn ("Ingresa Numero 1")
+ a <-getLine
+ putStrLn ("Ingresa Numero 2")
+ b <-getLine 
+ let aInt = (read a)
+ let bInt = (read b)
+ let resultado = aInt + bInt
+ putStrLn("La Suma Es: "++show resultado) 
+ calculadora
 
-    let aInt = (read a)
-    let bInt = (read b)
-    let resultado = aInt + bInt
+resta = do
+ putStrLn ("Ingresa Numero 1:")
+ a <-getLine
+ putStrLn ("Ingresa Numero 2:")
+ b <-getLine 
+ let aInt = (read a)
+ let bInt = (read b)
+ let resultado = aInt - bInt
+ putStrLn("La Resta Es: "++show resultado) 
+ calculadora
 
-    putStrLn("El resultado es: "++show resultado) 
-    main
 
-resta n = do
-    putStrLn ("Ingresa el numero1: ")
-    a <- getLine
-    putStrLn ("Ingresa el numero 2:")
-    b <- getLine
+multiplicacion = do
+ putStrLn ("Ingresa Numero 1:")
+ a <-getLine
+ putStrLn ("Ingresa Numero 2:")
+ b <-getLine
+ let aInt = (read a)
+ let bInt = (read b)
+ let resultado = aInt * bInt
+ putStrLn("La Multiplicacion Es: "++show resultado) 
+ calculadora
 
-    let aInt = (read a)
-    let bInt = (read b)
-    let resultado = aInt - bInt
-
-    putStrLn("El resultado es: "++show resultado) 
-    main
-
-multiplicacion n= do
-    putStrLn ("Ingresa el numero1: ")
-    a <- getLine
-    putStrLn ("Ingresa el numero 2:")
-    b <- getLine
-
-    let aInt = (read a)
-    let bInt = (read b)
-    let resultado = aInt * bInt
-
-    putStrLn("El resultado es: "++show resultado) 
-    main
-
-divicion n = do
-    putStrLn ("Ingresa el numero1: ")
-    a <- getLine
-    putStrLn ("Ingresa el numero 2:")
-    b <- getLine
-
-    let aInt = (read a)
-    let bInt = (read b)
-    let resultado = div aInt  bInt
-
-    putStrLn("El resultado es: "++show resultado) 
-    main
+division = do
+ putStrLn ("Ingresa Numero 1:")
+ a<-getLine
+ putStrLn ("Ingresa Numero 2:")
+ b<-getLine 
+ let aInt = (read a)
+ let bInt = (read b)
+ let resultado = aInt / bInt
+ putStrLn("La division Es: "++show resultado) 
+ calculadora
